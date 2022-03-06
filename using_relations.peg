@@ -1,5 +1,5 @@
 File
-  = Comments? _ usings:Using* (Comments / _)* (Assembly / _)* "namespace" _ namespace:Namespace {
+  = Comments? _ usings:Using* (Comments / Assembly / _)* "namespace" _ namespace:Namespace {
       const relations = usings
       	.filter(using => !using.startsWith("System"))
         .map(
