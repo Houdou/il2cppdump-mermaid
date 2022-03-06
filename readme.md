@@ -5,6 +5,10 @@ A small script to generate mermaid code from [Il2CppInspector](https://github.co
 ## Usage
 
 - Export code grouped by namespace in Il2CppInspector
+  - Recommended configs
+    - File per namespace
+    - Suppress comments
+    - Attempt to generate output that compiles
 - Run the script in the exported folder by `npx il2cppdump-mermaid`
 - Script will read all .cs file (excluding global) & generate mermaid code
 

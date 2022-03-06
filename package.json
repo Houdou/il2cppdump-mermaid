@@ -13,8 +13,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "yarn build-using",
-    "build-using": "pegjs -o using_relations.js using_relations.peg && node post-build using_relations",
+    "build": "yarn build-namespace",
+    "build-namespace": "pegjs -o namespace_relations.js namespace_relations.peg && node post-build namespace_relations",
     "build-class": "pegjs -o class_relations.js class_relations.peg && node post-build class_relations"
   },
   "dependencies": {

@@ -5,8 +5,8 @@ import * as fs from 'fs';
 import { default as scramjet } from 'scramjet';
 const { StringStream } = scramjet;
 
-// Using relations
-import * as parser from './using_relations.js';
+// Namespace relations
+import * as parser from './namespace_relations.js';
 
 async function getUsingRelationsFromFile(file_path) {
   if(file_path.includes('global.cs'))  {
@@ -38,7 +38,7 @@ glob("**/*.cs", {}, async (err, files) => {
   );
 
   fs.writeFileSync(
-    'using_relations.md',
+    'namespace_relations.md',
     `classDiagram
 direction LR
 
