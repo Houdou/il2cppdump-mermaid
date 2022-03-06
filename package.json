@@ -3,6 +3,7 @@
   "version": "0.1.1",
   "main": "index.js",
   "bin": "index.js",
+  "repository": "Houdou/il2cppdump-mermaid",
   "license": "MIT",
   "type": "module",
   "scripts": {
