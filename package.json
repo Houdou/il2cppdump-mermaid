@@ -1,0 +1,19 @@
+{
+  "name": "il2cppdump-mermaid",
+  "version": "0.1.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "yarn build-using",
+    "build-using": "pegjs -o using_relations.js using_relations.peg && node post-build using_relations",
+    "build-class": "pegjs -o class_relations.js class_relations.peg && node post-build class_relations"
+  },
+  "dependencies": {
+    "glob": "^7.2.0",
+    "scramjet": "^4.36.6"
+  },
+  "devDependencies": {
+    "pegjs": "^0.10.0"
+  }
+}

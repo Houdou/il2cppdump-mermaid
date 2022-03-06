@@ -1,0 +1,35 @@
+File
+  = Comments? _ usings:Using* (Comments / _)* (Assembly / _)* "namespace" _ namespace:Namespace {
+      const relations = usings
+      	.filter(using => !using.startsWith("System"))
+        .map(
+          using => `${namespace.replace(/\./g, "_")} --|> ${using.replace(/\./g, "_")}`
+        );
+
+      return relations.join('\n');
+    }
+
+Using
+  = "using" _ namespace:Namespace ";\n" {
+  	return namespace;
+  }
+
+Namespace
+  = namespace:[0-9a-zA-Z._]* {
+  	return namespace.join("");
+  }
+
+Comments
+  = SingleLineComment / MultiLineComment
+
+SingleLineComment
+  = "//" (!"\n" .)* [\n\r]?
+
+MultiLineComment
+  = "/*" (!"*/" .)* "*/"
+
+Assembly
+  = "[" [:0-9a-zA-Z._ ]* "]" _ Comments?
+
+_ "whitespace"
+  = [ \t\n\r]+
