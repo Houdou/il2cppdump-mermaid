@@ -1,6 +1,6 @@
 {
   "name": "il2cppdump-mermaid",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "main": "index.js",
   "bin": "index.js",
   "repository": "Houdou/il2cppdump-mermaid",
