@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import glob from 'glob';
 import * as fs from 'fs';
 import { default as scramjet } from 'scramjet';

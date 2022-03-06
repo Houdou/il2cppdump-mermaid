@@ -2,6 +2,7 @@
   "name": "il2cppdump-mermaid",
   "version": "0.1.0",
   "main": "index.js",
+  "bin": "index.js",
   "license": "MIT",
   "type": "module",
   "scripts": {
