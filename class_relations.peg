@@ -1,0 +1,66 @@
+ClassDeclaration
+  = access_modifier:AccessModifier _? modifier:ExtraModifier? _? "class" _ class_name:FristLayerGenericIdentifier _? inheritances:Inheritances? {
+    return {
+      access_modifier,
+      modifier,
+      class_name,
+      inheritances: inheritances || []
+    };
+  }
+
+AccessModifier
+  = "protected internal" /  "private protected" / "public" / "protected" / "private" / "internal"
+
+ExtraModifier
+  = "sealed" / "abstract" / "static"
+
+Inheritances
+  = ":" _? first:Inheritance _? rest:ExtraInheritances* {
+    return [
+    	first,
+        ...rest
+    ]
+  }
+
+ExtraInheritances
+  = "," _? inheritance:Inheritance {
+    return inheritance
+  }
+
+Inheritance
+  = name:FristLayerGenericIdentifier {
+    return name;
+  }
+
+Identifier
+  = identifier:[0-9a-zA-Z._<>]* {
+  	return identifier.join("");
+  }
+
+ FristLayerGenericIdentifier
+  = identifier:[0-9a-zA-Z._\[\]]* generic:Generic? {
+  	return [...identifier, generic].filter(Boolean).join("");
+  }
+
+ GenericIdentifier
+  = identifier:[0-9a-zA-Z._\[\]]* generic:NormalizeGeneric? {
+  	return [...identifier, generic].filter(Boolean).join("");
+  }
+
+ ExtraGenericIdentifier
+  = "," _? identifier:[0-9a-zA-Z._\[\]]* generic:NormalizeGeneric? {
+  	return [...identifier, generic].filter(Boolean).join("");
+  }
+
+ Generic
+  = "<" _? identifier:GenericIdentifier _? rest:ExtraGenericIdentifier* _? ">" {
+  	return `<${identifier}${rest.map(r => `, ${r}`).join("")}>`
+  }
+
+ NormalizeGeneric
+  = "<" _? identifier:GenericIdentifier _? rest:ExtraGenericIdentifier* _? ">" {
+  	return `[${identifier}${rest.map(r => `, ${r}`).join("")}]`
+  }
+
+_ "whitespace"
+  = [ \t]+
