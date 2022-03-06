@@ -9,4 +9,7 @@ A small script to generate mermaid code from [Il2CppInspector](https://github.co
 - Script will read all .cs file (excluding global) & generate mermaid code
 
 Hanv't test it against any other full scope
-Totally not guaranteed to work with other project
+Totally not guaranteed to work with other projects
+
+## Next step
+- Class relations with filter

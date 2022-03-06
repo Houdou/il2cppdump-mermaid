@@ -4,6 +4,12 @@
   "main": "index.js",
   "bin": "index.js",
   "repository": "Houdou/il2cppdump-mermaid",
+  "keywords": [
+    "il2cpp",
+    "reverse-engineering",
+    "mermaid",
+    "diagram"
+  ],
   "license": "MIT",
   "type": "module",
   "scripts": {
